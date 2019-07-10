@@ -2,10 +2,14 @@ var mongoose = require("mongoose");
 
 var CardSchema = new mongoose.Schema(
   {
-    user_id: String,
-    deck_id: String,
-    frontCard: String,
-    backCard: String
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    deck_id: [{ type: mongoose.Schema.Types.ObjectId, ref: "Deck" }],
+    frontCard: {
+      type: String,
+      required: true
+    },
+    backCard: String,
+    required: true
   },
   {
     timestamps: true

@@ -6,7 +6,8 @@ var UserSchema = new mongoose.Schema(
     lastNAME: String,
     email: String,
     password: String,
-    decks: []
+    decks: [{ type: Schema.Types.ObjectId, ref: "Deck" }],
+    cards: [{ type: Schema.Types.ObjectId, ref: "Card" }]
   },
   {
     timestamps: true

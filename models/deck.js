@@ -4,7 +4,7 @@ var DeckSchema = new mongoose.Schema(
   {
     user_id: String,
     subject: String,
-    cards: []
+    cards: [{ type: mongoose.Schema.Types.ObjectId, ref: "Card" }]
   },
   {
     timestamps: true

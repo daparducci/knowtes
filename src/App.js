@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Index from "./components/Index";
 import SignUp from "./components/SignUp";
-import { Link, Switch, Route } from "react-router-dom";
 import Login from "./components/login";
+
+import { Link, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -10,12 +11,26 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            React Hacker News
+            knowtes
           </Link>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div
+            className="collapse navbar-collapse justify-content-end mr-auto mt-2"
+            id="navbarSupportedContent"
+          >
+            <ul className="navbar-nav">
               <li className="nav-item">
                 <Link to={"/"} className="nav-link">
                   Sign Up
