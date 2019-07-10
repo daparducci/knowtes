@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 
-class Index extends Component {
+class Login extends Component {
   constructor() {
     super();
   }
   render() {
     return (
       <div>
-        <h1>Hello From Index</h1>
+        <h1>Hello From Login</h1>
       </div>
     );
   }
 }
 
-export default Index;
+export default Login;
