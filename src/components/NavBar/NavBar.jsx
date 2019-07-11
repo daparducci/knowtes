@@ -1,13 +1,27 @@
 import React, { Component } from "react";
 import Index from "../Index";
-import SignUp from "../SignUp";
-import Login from "../login";
+import SignupPage from "../pages/SignupPage/SignupPage";
+import SignupForm from "../SignupForm/SignupForm";
+import LoginPage from "../pages/LoginPage/LoginPage";
+import userService from "../../utils/userService";
 import { Link, Switch, Route } from "react-router-dom";
 
 class NavBar extends Component {
   constructor() {
     super();
+    this.state = {
+      user: userService.getUser()
+    };
   }
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  };
+
+  handleSignupOrLogin = () => {
+    this.setState({ user: userService.getUser() });
+  };
   render() {
     return (
       <div className="container">
@@ -31,23 +45,55 @@ class NavBar extends Component {
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link to={"/"} className="nav-link">
-                  Sign Up
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
-                  Login
-                </Link>
-              </li>
+              {this.state.user ? (
+                <li className="nav-item">
+                  <Link
+                    to={"/"}
+                    className="nav-link"
+                    onClick={this.handleLogout}
+                  >
+                    Logout
+                  </Link>
+                </li>
+              ) : (
+                <div>
+                  <li className="nav-item">
+                    <Link to={"/signup"} className="nav-link">
+                      Sign Up
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to={"/login"} className="nav-link">
+                      Login
+                    </Link>
+                  </li>
+                </div>
+              )}
             </ul>
           </div>
         </nav>
         <Switch>
-          <Route exact path="/" component={Index} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route
+            exact
+            path="/signup"
+            render={({ history }) => (
+              <SignupPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/login"
+            render={({ history }) => (
+              <LoginPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            )}
+          />
+          <Route exact path="/signup" component={SignupPage} />
         </Switch>
       </div>
     );
