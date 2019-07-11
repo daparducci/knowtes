@@ -5,99 +5,78 @@ import SignupForm from "../SignupForm/SignupForm";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import { Link, Switch, Route } from "react-router-dom";
+import "./NavBar.css";
 
-class NavBar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: userService.getUser()
-    };
-  }
+// class NavBar extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       user: userService.getUser()
+//     };
+//   }
 
-  handleLogout = () => {
-    userService.logout();
-    this.setState({ user: null });
-  };
+//   handleLogout = () => {
+//     userService.logout();
+//     this.setState({ user: null });
+//   };
 
-  handleSignupOrLogin = () => {
-    this.setState({ user: userService.getUser() });
-  };
-  render() {
-    return (
-      <div className="container">
-        <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-          <Link to={"/"} className="navbar-brand">
-            knowtes
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div
-            className="collapse navbar-collapse justify-content-end mr-auto mt-2"
-            id="navbarSupportedContent"
-          >
-            <ul className="navbar-nav">
-              {this.state.user ? (
+//   handleSignupOrLogin = () => {
+//     this.setState({ user: userService.getUser() });
+//   };
+
+const NavBar = props => {
+  return (
+    <div className="container">
+      <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <Link to={"/"} className="navbar-brand">
+          knowtes
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div
+          className="collapse navbar-collapse justify-content-end mr-auto mt-2"
+          id="navbarSupportedContent"
+        >
+          <ul className="navbar-nav">
+            {props.user ? (
+              <li className="nav-item">
+                <Link
+                  to={"/"}
+                  className="nav-link"
+                  onClick={props.handleLogout}
+                >
+                  Logout
+                </Link>
+              </li>
+            ) : (
+              <div className="link-div">
                 <li className="nav-item">
-                  <Link
-                    to={"/"}
-                    className="nav-link"
-                    onClick={this.handleLogout}
-                  >
-                    Logout
+                  <Link to={"/signup"} className="nav-link">
+                    Sign Up
                   </Link>
                 </li>
-              ) : (
-                <div>
-                  <li className="nav-item">
-                    <Link to={"/signup"} className="nav-link">
-                      Sign Up
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to={"/login"} className="nav-link">
-                      Login
-                    </Link>
-                  </li>
-                </div>
-              )}
-            </ul>
-          </div>
-        </nav>
-        <Switch>
-          <Route
-            exact
-            path="/signup"
-            render={({ history }) => (
-              <SignupPage
-                history={history}
-                handleSignupOrLogin={this.handleSignupOrLogin}
-              />
+
+                <li className="nav-item">
+                  <Link to={"/login"} className="nav-link">
+                    Login
+                  </Link>
+                </li>
+              </div>
             )}
-          />
-          <Route
-            exact
-            path="/login"
-            render={({ history }) => (
-              <LoginPage
-                history={history}
-                handleSignupOrLogin={this.handleSignupOrLogin}
-              />
-            )}
-          />
-          <Route exact path="/signup" component={SignupPage} />
-        </Switch>
-      </div>
-    );
-  }
-}
+          </ul>
+        </div>
+      </nav>
+    </div>
+  );
+};
 
 export default NavBar;
