@@ -3,9 +3,12 @@ import SignupPage from "./components/pages/SignupPage/SignupPage";
 import LoginPage from "./components/pages/LoginPage/LoginPage";
 import NavBar from "./components/NavBar/NavBar";
 import Index from "./components/Index/Index";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link, Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
 import userService from "./utils/userService";
+import ProfilePage from "./components/pages/ProfilePage/ProfilePage";
+import CreateDeck from "./components/CreateDeck/CreateDeck";
+import CreateCards from "./components/CreateCards/CreateCards";
 
 class App extends Component {
   constructor() {
@@ -42,6 +45,21 @@ class App extends Component {
           />
           <Route
             exact
+            path="/profile"
+            render={props =>
+              userService.getUser() ? (
+                <ProfilePage
+                  {...props}
+                  user={this.state.user}
+                  handleLogOut={this.handleLogOut}
+                />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route
+            exact
             path="/login"
             render={({ history }) => (
               <LoginPage
@@ -51,6 +69,8 @@ class App extends Component {
             )}
           />
           <Route exact path="/signup" component={SignupPage} />
+          <Route exact path="/create" component={CreateDeck} />
+          <Route exact path="/createCards" component={CreateCards} />
         </Switch>
       </div>
     );

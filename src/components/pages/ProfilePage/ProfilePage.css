@@ -1,0 +1,23 @@
+.col {
+  display: flex;
+  justify-content: center;
+  margin: 25px;
+  height: 20vh;
+  width: 25vh;
+  background-position: center;
+  background-size: cover;
+}
+
+.img {
+  background: url("https://i.imgur.com/WJNObR4.png");
+  height: 30vh;
+  width: 35vw;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 2px 3px 2px 3px rgba(138, 144, 207, 0.8);
+  margin: 25px;
+}
+
+.btn {
+  margin: 15px;
+}

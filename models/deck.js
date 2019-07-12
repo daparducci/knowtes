@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 var DeckSchema = new mongoose.Schema(
   {
     user_id: String,
-    subject: String,
+    deckName: String,
     cards: [{ type: mongoose.Schema.Types.ObjectId, ref: "Card" }]
   },
   {
