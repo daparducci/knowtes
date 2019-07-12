@@ -1,0 +1,22 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("https://imgur.com/WJNObR4");
+  align-items: center;
+}
+
+.background {
+  background: url("https://i.imgur.com/WJNObR4.png");
+  height: 50vh;
+  width: 55vw;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 2px 3px 2px 3px rgba(138, 144, 207, 0.8);
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+
+.btn {
+  margin: 10px;
+}

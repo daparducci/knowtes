@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SignupPage from "./components/pages/SignupPage/SignupPage";
 import LoginPage from "./components/pages/LoginPage/LoginPage";
 import NavBar from "./components/NavBar/NavBar";
-
+import Index from "./components/Index/Index";
 import { Link, Switch, Route } from "react-router-dom";
 import "./App.css";
 import userService from "./utils/userService";
@@ -29,6 +29,7 @@ class App extends Component {
       <div>
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
+          <Route exact path="/" component={Index} />
           <Route
             exact
             path="/signup"

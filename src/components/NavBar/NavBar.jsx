@@ -1,28 +1,11 @@
 import React, { Component } from "react";
-import Index from "../Index";
+import Index from "../../components/Index/Index";
 import SignupPage from "../pages/SignupPage/SignupPage";
 import SignupForm from "../SignupForm/SignupForm";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import { Link, Switch, Route } from "react-router-dom";
 import "./NavBar.css";
-
-// class NavBar extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       user: userService.getUser()
-//     };
-//   }
-
-//   handleLogout = () => {
-//     userService.logout();
-//     this.setState({ user: null });
-//   };
-
-//   handleSignupOrLogin = () => {
-//     this.setState({ user: userService.getUser() });
-//   };
 
 const NavBar = props => {
   return (
