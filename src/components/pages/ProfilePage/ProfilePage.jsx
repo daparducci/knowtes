@@ -10,10 +10,14 @@ class ProfilePage extends Component {
       <div className="container">
         <div className="row">
           <div className="col">
-            <div className="img" />
+            <Link to={"/create"}>
+              <div className="img" />
+            </Link>
           </div>
           <div className="col">
-            <div className="img" />
+            <Link>
+              <div className="img" />
+            </Link>
           </div>
         </div>
         <div className="row">

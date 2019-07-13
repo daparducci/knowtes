@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./CreateCards.css";
 import { createCard } from "../../services/api";
 import tokenService from "../../utils/tokenService";
+import { Link } from "react-router-dom";
 
 class CreateCards extends Component {
   constructor() {
@@ -38,32 +39,39 @@ class CreateCards extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Add a New Card</h1>
+      <div className="container">
+        <div className="header">
+          <h1>Add a New Card</h1>
+        </div>
         <hr />
-        <form onSubmit={this.handleSubmit}>
-          <label>Front of Card</label>
-          <br />
-          <textarea
-            onChange={this.handleCardFront}
-            value={this.state.frontCard}
-          />
-          <br />
+        <div className="card-wrapper">
+          <form onSubmit={this.handleSubmit}>
+            <label className="card-label">Front of Card</label>
+            <br />
+            <textarea
+              onChange={this.handleCardFront}
+              value={this.state.frontCard}
+            />
+            <br />
 
-          <label>Back of Card</label>
-          <br />
-          <textarea
-            onChange={this.handleCardBack}
-            value={this.state.backCard}
-          />
-          <br />
+            <label className="card-label">Back of Card</label>
+            <br />
+            <textarea
+              onChange={this.handleCardBack}
+              value={this.state.backCard}
+            />
+            <br />
 
-          <input
-            type="submit"
-            className="btn btn-primary"
-            value="Submit Post"
-          />
-        </form>
+            <input
+              type="submit"
+              className="btn btn-primary"
+              value="Add Another Card"
+            />
+            <Link to="/profile" className="btn btn-secondary">
+              Go Back To Profile
+            </Link>
+          </form>
+        </div>
       </div>
     );
   }
