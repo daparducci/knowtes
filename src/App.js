@@ -70,7 +70,11 @@ class App extends Component {
           />
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/create" component={CreateDeck} />
-          <Route exact path="/createCards" component={CreateCards} />
+          <Route
+            exact
+            path="/decks/:id/cards/create"
+            render={props => <CreateCards {...props} />}
+          />
         </Switch>
       </div>
     );

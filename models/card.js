@@ -8,8 +8,10 @@ var CardSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    backCard: String,
-    required: true
+    backCard: {
+      type: String,
+      required: true
+    }
   },
   {
     timestamps: true

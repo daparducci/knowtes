@@ -1,10 +1,11 @@
 var mongoose = require("mongoose");
+var Card = require("./card");
 
 var DeckSchema = new mongoose.Schema(
   {
     user_id: String,
     deckName: String,
-    cards: [{ type: mongoose.Schema.Types.ObjectId, ref: "Card" }]
+    cards: [Card.schema]
   },
   {
     timestamps: true

@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, "build")));
 // app.use("/api", apiRouter);
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/decks", require("./routes/api/decks"));
+app.use("/api/cards", require("./routes/api/cards"));
 
 // The following "catch all" route (note the *)is necessary
 // for a SPA's client-side routing to properly work

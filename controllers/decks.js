@@ -5,8 +5,8 @@ module.exports = {
 };
 
 function createDeck(req, res) {
-  console.log("decks.js hit");
-  Deck.create(req.body).then(function(post) {
-    res.status(201).json(post);
+  console.log(req.body);
+  Deck.create(req.body).then(function(deck) {
+    res.status(201).json(deck);
   });
 }

@@ -16,8 +16,9 @@ class CreateDeck extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    createDeck(this.state).then(function() {
-      window.location = "/createCards";
+    createDeck(this.state).then(function(deck) {
+      // console.log(deck);
+      window.location = `/decks/${deck._id}/cards/create`;
     });
   };
 
