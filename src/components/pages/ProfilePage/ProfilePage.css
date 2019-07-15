@@ -1,6 +1,7 @@
-.col {
+.col-6 {
   display: flex;
   justify-content: center;
+  flex-direction: row;
   margin: 25px;
   height: 20vh;
   width: 25vh;
@@ -16,8 +17,4 @@
   background-size: cover;
   box-shadow: 2px 3px 2px 3px rgba(138, 144, 207, 0.8);
   margin: 25px;
-}
-
-.btn {
-  margin: 15px;
 }

@@ -4,8 +4,16 @@ const SECRET = process.env.SECRET;
 
 module.exports = {
   signup,
-  login
+  login,
+  getUser
 };
+
+function getUser(req, res) {
+  console.log("Made it to the Get Decks Function");
+  User.findById(req.params.id).then(function(user) {
+    res.status(200).json(user);
+  });
+}
 
 async function signup(req, res) {
   const user = new User(req.body);

@@ -30,14 +30,19 @@ class CreateCards extends Component {
 
   handleSubmit = e => {
     console.log(this.state);
+    var self = this;
     e.preventDefault();
     createCard(this.state).then(function(card) {
-      console.log(card);
+      self.setState({
+        frontCard: "",
+        backCard: ""
+      });
       //   window.location = "/profile";
     });
   };
 
   render() {
+    console.log();
     return (
       <div className="container">
         <div className="header">

@@ -9,6 +9,7 @@ import userService from "./utils/userService";
 import ProfilePage from "./components/pages/ProfilePage/ProfilePage";
 import CreateDeck from "./components/CreateDeck/CreateDeck";
 import CreateCards from "./components/CreateCards/CreateCards";
+import ShowPage from "./components/pages/ShowPage/ShowPage";
 
 class App extends Component {
   constructor() {
@@ -29,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
           <Route exact path="/" component={Index} />
@@ -69,11 +70,20 @@ class App extends Component {
             )}
           />
           <Route exact path="/signup" component={SignupPage} />
-          <Route exact path="/create" component={CreateDeck} />
+          <Route
+            exact
+            path="/create"
+            render={props => <CreateDeck {...props} user={this.state.user} />}
+          />
           <Route
             exact
             path="/decks/:id/cards/create"
             render={props => <CreateCards {...props} />}
+          />
+          <Route
+            exact
+            path="/decks/:id/"
+            render={props => <ShowPage {...props} />}
           />
         </Switch>
       </div>
