@@ -1,9 +1,9 @@
 var mongoose = require("mongoose");
+var Deck = require("./deck");
 
 var CardSchema = new mongoose.Schema(
   {
-    user_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    deck_id: [{ type: mongoose.Schema.Types.ObjectId, ref: "Deck" }],
+    decks: [Deck],
     frontCard: {
       type: String,
       required: true

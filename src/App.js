@@ -10,6 +10,7 @@ import ProfilePage from "./components/pages/ProfilePage/ProfilePage";
 import CreateDeck from "./components/CreateDeck/CreateDeck";
 import CreateCards from "./components/CreateCards/CreateCards";
 import ShowPage from "./components/pages/ShowPage/ShowPage";
+import StudyPage from "./components/pages/StudyPage/StudyPage";
 
 class App extends Component {
   constructor() {
@@ -84,6 +85,11 @@ class App extends Component {
             exact
             path="/decks/:id/"
             render={props => <ShowPage {...props} />}
+          />
+          <Route
+            exact
+            path="/study/:id"
+            render={props => <StudyPage {...props} />}
           />
         </Switch>
       </div>

@@ -41,3 +41,10 @@ export function getUser(id) {
     return res.json();
   });
 }
+
+//Show Single Card
+export function getCard(id) {
+  return fetch(`/api/cards/${id}`).then(function(res) {
+    return res.json();
+  });
+}

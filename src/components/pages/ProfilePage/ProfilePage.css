@@ -18,3 +18,8 @@
   box-shadow: 2px 3px 2px 3px rgba(138, 144, 207, 0.8);
   margin: 25px;
 }
+
+.decks-link {
+  list-style: none;
+  margin-top: 10px;
+}

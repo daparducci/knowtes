@@ -19,7 +19,7 @@ class CreateDeck extends Component {
     e.preventDefault();
     createDeck(this.state).then(function(deck) {
       // console.log(deck);
-      //window.location = `/decks/${deck._id}/cards/create`;
+      window.location = `/decks/${deck._id}/cards/create`;
     });
   };
 

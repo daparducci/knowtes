@@ -7,7 +7,8 @@ class ProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      decks: []
+      decks: [],
+      deck_id: ""
     };
   }
 
@@ -18,8 +19,8 @@ class ProfilePage extends Component {
     console.log("Componenet Did Mount:", id);
 
     getUser(id).then(function(user) {
+      console.log("USER DECKS: ", user.decks);
       self.setState({
-        // id: user._id,
         decks: user.decks
       });
     });
@@ -27,28 +28,24 @@ class ProfilePage extends Component {
 
   render() {
     var decks = this.state.decks.map((deck, idx) => {
+      console.log("The IDX: ", deck);
       return (
         <div>
-          <li key={idx}>{deck.deckName}</li>
+          <Link to={`/study/${deck._id}`}>{deck.deckName}</Link>
         </div>
       );
     });
-
+    console.log("Deck: ", this.state.deck_id);
     return (
       <div className="container">
         <div className="row">
           <div className="col-lg-4 col-sm-3">
             <div className="img">
-              <Link to={"/create"}>Title</Link>
+              <Link to={`/study`}>{decks}</Link>
             </div>
           </div>
-          <div className="col-lg-3" />
-          <div className="col-lg-4 col-sm-3">
-            <Link>
-              <div className="img" />
-            </Link>
-          </div>
         </div>
+        <Link to={"/create"}>Create A New Deck</Link>
       </div>
     );
   }

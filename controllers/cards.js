@@ -2,7 +2,8 @@ const Card = require("../models/card");
 const Deck = require("../models/deck");
 
 module.exports = {
-  addCard
+  addCard,
+  getCard
 };
 
 function addCard(req, res) {
@@ -14,5 +15,11 @@ function addCard(req, res) {
     deck.save(function(deck) {
       res.status(200).json(deck);
     });
+  });
+}
+
+async function getCard(req, res) {
+  await Deck.findById(req.params.id).then(function(deck) {
+    res.status(200).json(deck);
   });
 }
