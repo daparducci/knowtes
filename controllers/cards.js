@@ -18,8 +18,10 @@ function addCard(req, res) {
   });
 }
 
-async function getCard(req, res) {
-  await Deck.findById(req.params.id).then(function(deck) {
+function getCard(req, res) {
+  console.log("REQ PARAMS ID: ", req.params.id);
+  Deck.findById(req.params.id).then(function(deck) {
+    console.log("deck used in promise: ", deck);
     res.status(200).json(deck);
   });
 }

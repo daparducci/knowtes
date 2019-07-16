@@ -3,7 +3,6 @@ var Deck = require("./deck");
 
 var CardSchema = new mongoose.Schema(
   {
-    decks: [Deck],
     frontCard: {
       type: String,
       required: true

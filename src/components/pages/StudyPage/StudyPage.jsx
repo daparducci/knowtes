@@ -7,23 +7,19 @@ class StudyPage extends Component {
     this.state = {
       id: "",
       frontCard: "",
-      backCard: ""
+      backCard: "",
+      deck: ""
     };
   }
-  componentDidMount() {
+  async componentDidMount() {
+    // console.log(this.props.match.params.id);
     var id = this.props.match.params.id;
-    var self = this;
-
-    getCard(id).then(function(card) {
-      console.log("The CARD: ", card);
-      self.setState({
-        id: card._id,
-        // deck: card.decks,
-        frontCard: card.frontCard,
-        backCard: card.backCard
-      });
+    // var self = this;
+    var card = await getCard(id);
+    this.setState({
+      deck: card
     });
-    // console.log(this.state.deck);
+    console.log("DECK: ", this.state.deck);
   }
 
   render() {

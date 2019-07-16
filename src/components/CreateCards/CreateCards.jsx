@@ -37,7 +37,7 @@ class CreateCards extends Component {
         frontCard: "",
         backCard: ""
       });
-      //   window.location = "/profile";
+      //window.location = "/profile";
     });
   };
 

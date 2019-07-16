@@ -2,7 +2,10 @@ const Deck = require("../models/deck");
 const User = require("../models/user");
 
 module.exports = {
-  createDeck
+  createDeck,
+  getDeck,
+  editDeck,
+  deleteDeck
 };
 
 // function createDeck(req, res) {
@@ -31,4 +34,45 @@ function createDeck(req, res) {
       res.status(200).json(deck);
     });
   });
+}
+
+function getDeck(req, res) {
+  console.log("REQ PARAMS ID: ", req.params.id);
+  Deck.findById(req.params.id).then(function(deck) {
+    console.log("deck used in promise: ", deck);
+    res.status(200).json(deck);
+  });
+}
+
+function editDeck(req, res) {
+  console.log("EditDeck ", req.body);
+  Deck.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(function(
+    deck
+  ) {
+    console.log("This is the DECK: ", deck);
+    res.status(200).json(deck);
+  });
+}
+
+function deleteDeck(req, res) {
+  console.log("Delete Deck Controller", req.body.user_id, req.params);
+  // User.findById(req.body.user_id).then(function(err, user) {
+  //   console.log("This is the user: ", user);
+  //   user.decks.id(req.params.id).remove();
+  //   user.save(function(err) {
+  //     res.status(200).json(user);
+  //   });
+  // });
+
+  User.findById(req.body.user_id, function(err, user) {
+    console.log("This is the user: ", user);
+    user.decks.id(req.params.id).remove();
+    user.save(function(err) {
+      res.status(200).json(user);
+    });
+  });
+  // Deck.findByIdAndRemove(req.params.id).then(function(deck) {
+  //   console.log("This is the DECK: ", deck);
+  //   res.status(200).json(deck);
+  // });
 }

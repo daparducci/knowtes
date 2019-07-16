@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import "./ProfilePage.css";
 import { Link, Switch, Route } from "react-router-dom";
-import { getUser } from "../../../services/api";
+import { getUser, deleteDeck } from "../../../services/api";
 
 class ProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       decks: [],
-      deck_id: ""
+      deck_id: "",
+      user_id: ""
     };
   }
 
@@ -21,32 +22,54 @@ class ProfilePage extends Component {
     getUser(id).then(function(user) {
       console.log("USER DECKS: ", user.decks);
       self.setState({
-        decks: user.decks
+        decks: user.decks,
+        user_id: user._id
       });
     });
   }
+
+  handleDelete = deck_id => {
+    console.log("THE USER: ", this.state.user_id);
+    deleteDeck(this.state.user_id, deck_id).then(function(json) {
+      window.location = "/profile";
+    });
+  };
 
   render() {
     var decks = this.state.decks.map((deck, idx) => {
       console.log("The IDX: ", deck);
       return (
         <div>
-          <Link to={`/study/${deck._id}`}>{deck.deckName}</Link>
+          <li>
+            <Link to={`/study/${deck._id}`}>{deck.deckName}</Link>
+            <br />
+            <Link to={`/decks/${deck._id}/edit`}>Edit {deck.deckName}</Link>
+            <br />
+            <a
+              href="#"
+              className="btn btn-danger"
+              onClick={() => this.handleDelete(deck._id, "delete")}
+            >
+              Delete
+              <i className="fa fa-trash" />
+            </a>
+          </li>
         </div>
       );
     });
     console.log("Deck: ", this.state.deck_id);
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-4 col-sm-3">
-            <div className="img">
-              <Link to={`/study`}>{decks}</Link>
-            </div>
-          </div>
-        </div>
-        <Link to={"/create"}>Create A New Deck</Link>
-      </div>
+      <div>{decks}</div>
+      // <div className="container">
+      //   <div className="row">
+      //     <div className="col-lg-4 col-sm-3">
+      //       <div className="img">
+      //         <Link to={`/study`}>{decks}</Link>
+      //       </div>
+      //     </div>
+      //   </div>
+      //   <Link to={"/create"}>Create A New Deck</Link>
+      // </div>
     );
   }
 }
