@@ -1,3 +1,5 @@
+body {
+}
 .col-6 {
   display: flex;
   justify-content: center;
@@ -26,15 +28,21 @@
 
 .contain {
   display: flex;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   margin: 50px;
 }
 
 .colum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: url("https://i.imgur.com/WJNObR4.png");
-  height: 20%;
-  width: 33%;
+  height: 30vh;
+  width: 33vw;
+  margin-bottom: 30px;
   background-position: center;
   background-size: cover;
   box-shadow: 2px 3px 2px 3px rgba(138, 144, 207, 0.8);
@@ -42,4 +50,20 @@
 
 .profile-li {
   list-style: none;
+}
+
+.container::after {
+  content: "";
+  background: url("https://i.imgur.com/C0CQS7R.jpg");
+  image-rendering: -webkit-optimize-contrast;
+
+  background-repeat: repeat;
+  height: 500vh;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }

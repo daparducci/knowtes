@@ -62,7 +62,7 @@ export function getDeck(id) {
 export function editDeck(deck) {
   console.log("Editing the Deck", deck);
   return fetch(`/api/decks/${deck.id}`, {
-    method: "POST",
+    method: "PUT",
     body: JSON.stringify(deck),
     headers: {
       "Content-Type": "application/json",

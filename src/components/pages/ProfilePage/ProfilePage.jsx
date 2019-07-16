@@ -41,28 +41,50 @@ class ProfilePage extends Component {
       return (
         <div className="contain">
           <div className="colum">
-            <li className="profile-li">
-              <Link to={`/study/${deck._id}`}>{deck.deckName}</Link>
-              <br />
-              <br />
-              <Link to={`/decks/${deck._id}/edit`}>Edit {deck.deckName}</Link>
-              <br />
-              <a
-                href="#"
-                className="btn btn-danger"
-                onClick={() => this.handleDelete(deck._id, "delete")}
-              >
-                Delete
-                <i className="fa fa-trash" />
-              </a>
-            </li>
+            <Link to={`/study/${deck._id}`}>{deck.deckName}</Link>
+          </div>
+          <div className="edit">
+            <Link className="btn btn-light" to={`/decks/${deck._id}/edit`}>
+              Edit {deck.deckName}
+            </Link>
+
+            <a
+              href="#"
+              className="btn btn-danger"
+              onClick={() => this.handleDelete(deck._id, "delete")}
+            >
+              Delete
+              <i className="fa fa-trash" />
+            </a>
           </div>
         </div>
+        // <div className="contain">
+        //   <div className="colum">
+        //     <li className="profile-li">
+        //       <Link to={`/study/${deck._id}`}>Study</Link>
+        //       <br />
+        //       <br />
+        //       <Link to={`/decks/${deck._id}/edit`}>Edit {deck.deckName}</Link>
+        //       <br />
+        //       <a
+        //         href="#"
+        //         className="btn btn-danger"
+        //         onClick={() => this.handleDelete(deck._id, "delete")}
+        //       >
+        //         Delete
+        //         <i className="fa fa-trash" />
+        //       </a>
+        //     </li>
+        //   </div>
+        // </div>
       );
     });
     console.log("Deck: ", this.state.deck_id);
     return (
-      <div>{decks}</div>
+      <div className="container">
+        <div className="header">Knowtes</div>
+        <div>{decks}</div>
+      </div>
       // <div className="container">
       //   <div className="row">
       //     <div className="col-lg-4 col-sm-3">

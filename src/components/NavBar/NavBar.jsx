@@ -31,15 +31,27 @@ const NavBar = props => {
         >
           <ul className="navbar-nav">
             {props.user ? (
-              <li className="nav-item">
-                <Link
-                  to={"/"}
-                  className="nav-link"
-                  onClick={props.handleLogout}
-                >
-                  Logout
-                </Link>
-              </li>
+              <div className="link-div">
+                <li className="nav-item">
+                  <Link to={"/profile"} className="nav-link">
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={"/create"} className="nav-link">
+                    Add New Deck
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to={"/"}
+                    className="nav-link"
+                    onClick={props.handleLogout}
+                  >
+                    Logout
+                  </Link>
+                </li>
+              </div>
             ) : (
               <div className="link-div">
                 <li className="nav-item">

@@ -75,13 +75,34 @@ class App extends Component {
           <Route
             exact
             path="/create"
-            render={props => <CreateDeck {...props} user={this.state.user} />}
+            render={props =>
+              userService.getUser() ? (
+                <CreateDeck
+                  {...props}
+                  user={this.state.user}
+                  handleLogOut={this.handleLogOut}
+                />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
           />
           <Route
             exact
             path="/decks/:id/cards/create"
-            render={props => <CreateCards {...props} />}
+            render={props =>
+              userService.getUser() ? (
+                <CreateCards
+                  {...props}
+                  user={this.state.user}
+                  handleLogOut={this.handleLogOut}
+                />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
           />
+
           <Route
             exact
             path="/decks/:id/"

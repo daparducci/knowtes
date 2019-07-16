@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getDeck } from "../../../services/api";
+import "./StudyPage.css";
 
 class StudyPage extends Component {
   constructor() {
@@ -29,11 +30,17 @@ class StudyPage extends Component {
   handleNext = e => {
     e.preventDefault();
     var newIdx = this.state.index + 1;
+    if (newIdx > this.state.cards.length || newIdx < 0) {
+      newIdx = 0;
+    }
     this.setState({ index: newIdx });
   };
   handlePrev = e => {
     e.preventDefault();
     var newIdx = this.state.index - 1;
+    if (newIdx > this.state.cards.length || newIdx < 0) {
+      newIdx = 0;
+    }
     this.setState({ index: newIdx });
   };
   handleFlip = e => {
@@ -67,18 +74,23 @@ class StudyPage extends Component {
     });
 
     return (
-      <div>
-        <p className="card" onClick={this.handleFlip}>
+      <div className="wrapper">
+        <div className="card" onClick={this.handleFlip}>
           {cards}
-        </p>
-        <button className="btn - btn-primary" onClick={this.handlePrev}>
-          {" "}
-          Previous
-        </button>
-        <button className="btn - btn-primary" onClick={this.handleNext}>
-          Next
-        </button>
-        <button className="btn">Home</button>
+        </div>
+        <div className="box-3 btn-group">
+          <button className="btn - btn-primary study" onClick={this.handlePrev}>
+            {" "}
+            Previous
+          </button>
+
+          <button className="btn - btn-primary" onClick={this.handleNext}>
+            Next
+          </button>
+        </div>
+        <div className="home">
+          <button className="btn btn-info">Home</button>
+        </div>
       </div>
     );
   }
