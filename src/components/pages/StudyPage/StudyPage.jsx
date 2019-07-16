@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getDeck } from "../../../services/api";
+import { Link } from "react-router-dom";
 import "./StudyPage.css";
 
 class StudyPage extends Component {
@@ -89,7 +90,9 @@ class StudyPage extends Component {
           </button>
         </div>
         <div className="home">
-          <button className="btn btn-info">Home</button>
+          <button className="btn btn-info">
+            <Link to={"/profile"}>Home </Link>
+          </button>
         </div>
       </div>
     );

@@ -67,3 +67,15 @@ body {
   position: absolute;
   z-index: -1;
 }
+
+.card-name {
+  font-family: "Cabin Sketch", cursive;
+  font-size: 25px;
+  color: black;
+}
+
+.head {
+  font-family: "Cabin Sketch", cursive;
+  font-size: 80px;
+  color: yellow;
+}

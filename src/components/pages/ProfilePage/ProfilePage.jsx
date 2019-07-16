@@ -41,7 +41,9 @@ class ProfilePage extends Component {
       return (
         <div className="contain">
           <div className="colum">
-            <Link to={`/study/${deck._id}`}>{deck.deckName}</Link>
+            <Link className="card-name" to={`/study/${deck._id}`}>
+              {deck.deckName}
+            </Link>
           </div>
           <div className="edit">
             <Link className="btn btn-light" to={`/decks/${deck._id}/edit`}>
@@ -82,7 +84,9 @@ class ProfilePage extends Component {
     console.log("Deck: ", this.state.deck_id);
     return (
       <div className="container">
-        <div className="header">Knowtes</div>
+        <div className="header">
+          <h1 className="head">My Knowtes</h1>
+        </div>
         <div>{decks}</div>
       </div>
       // <div className="container">
