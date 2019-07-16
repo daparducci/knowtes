@@ -39,21 +39,24 @@ class ProfilePage extends Component {
     var decks = this.state.decks.map((deck, idx) => {
       console.log("The IDX: ", deck);
       return (
-        <div>
-          <li>
-            <Link to={`/study/${deck._id}`}>{deck.deckName}</Link>
-            <br />
-            <Link to={`/decks/${deck._id}/edit`}>Edit {deck.deckName}</Link>
-            <br />
-            <a
-              href="#"
-              className="btn btn-danger"
-              onClick={() => this.handleDelete(deck._id, "delete")}
-            >
-              Delete
-              <i className="fa fa-trash" />
-            </a>
-          </li>
+        <div className="contain">
+          <div className="colum">
+            <li className="profile-li">
+              <Link to={`/study/${deck._id}`}>{deck.deckName}</Link>
+              <br />
+              <br />
+              <Link to={`/decks/${deck._id}/edit`}>Edit {deck.deckName}</Link>
+              <br />
+              <a
+                href="#"
+                className="btn btn-danger"
+                onClick={() => this.handleDelete(deck._id, "delete")}
+              >
+                Delete
+                <i className="fa fa-trash" />
+              </a>
+            </li>
+          </div>
         </div>
       );
     });
