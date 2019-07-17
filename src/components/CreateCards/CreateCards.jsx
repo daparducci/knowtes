@@ -69,10 +69,10 @@ class CreateCards extends Component {
 
             <input
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-link"
               value="Add Another Card"
             />
-            <Link to="/profile" className="btn btn-secondary">
+            <Link to="/profile" className="btn btn-link">
               Go Back To Profile
             </Link>
           </form>

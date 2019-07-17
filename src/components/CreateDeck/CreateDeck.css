@@ -1,5 +1,16 @@
 .wrap-deck {
   display: flex;
+
   justify-content: center;
   text-align: center;
+}
+
+.deck-form {
+  margin-top: 160px;
+}
+
+.header {
+  font-family: "Cabin Sketch", cursive;
+  color: yellow;
+  font-size: 45px;
 }

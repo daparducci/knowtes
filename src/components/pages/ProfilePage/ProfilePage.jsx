@@ -46,13 +46,13 @@ class ProfilePage extends Component {
             </Link>
           </div>
           <div className="edit">
-            <Link className="btn btn-light" to={`/decks/${deck._id}/edit`}>
+            <Link className="btn btn-link" to={`/decks/${deck._id}/edit`}>
               Edit {deck.deckName}
             </Link>
 
             <a
               href="#"
-              className="btn btn-danger"
+              className="btn btn-link"
               onClick={() => this.handleDelete(deck._id, "delete")}
             >
               Delete

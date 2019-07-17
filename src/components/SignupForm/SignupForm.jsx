@@ -46,7 +46,7 @@ class SignupForm extends Component {
     return (
       <div className="container">
         <div className="inner">
-          <header className="header-footer">Sign Up</header>
+          <header className="head">Sign Up</header>
         </div>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -99,14 +99,13 @@ class SignupForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button
-                className="btn btn-default"
-                disabled={this.isFormInvalid()}
-              >
+              <button className="btn btn-link" disabled={this.isFormInvalid()}>
                 Sign Up
               </button>
               &nbsp;&nbsp;
-              <Link to="/">Cancel</Link>
+              <Link className="btn btn-link" to="/">
+                Cancel
+              </Link>
             </div>
           </div>
         </form>

@@ -9,14 +9,14 @@ class Index extends Component {
   render() {
     return (
       <div className="wrap">
-        <h1>Knowtes</h1>
+        <h1 className="head-index">Knowtes</h1>
         <div className="background" />
         <div>
-          <Link to={"/signup"} className="btn btn-info">
+          <Link to={"/signup"} className="btn btn-link">
             Sign Up
           </Link>
 
-          <Link to={"/login"} className="btn btn-info">
+          <Link to={"/login"} className="btn btn-link">
             Login
           </Link>
         </div>

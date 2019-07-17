@@ -10,7 +10,8 @@ import "./NavBar.css";
 const NavBar = props => {
   return (
     <div className="container">
-      <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar fixed-top navbar-expand-lg navbar-dark ">
+        {/* <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> */}
         <Link to={"/"} className="navbar-brand">
           knowtes
         </Link>

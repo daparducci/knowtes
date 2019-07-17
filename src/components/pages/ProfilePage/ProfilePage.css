@@ -52,21 +52,17 @@ body {
   list-style: none;
 }
 
-.container::after {
-  content: "";
-  background: url("https://i.imgur.com/C0CQS7R.jpg");
+/* .container::after {
+  background: url("https://i.imgur.com/DlWqCEB.jpg") no-repeat center center
+    fixed;
   image-rendering: -webkit-optimize-contrast;
 
-  background-repeat: repeat;
-  height: 500vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   opacity: 0.4;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-}
+} */
 
 .card-name {
   font-family: "Cabin Sketch", cursive;
@@ -78,4 +74,16 @@ body {
   font-family: "Cabin Sketch", cursive;
   font-size: 80px;
   color: yellow;
+}
+
+.btn {
+  font-family: "Cabin Sketch", cursive;
+  /* font-family: "Rock Salt", cursive; */
+  color: yellow;
+  font-size: 20px;
+}
+
+.btn:hover {
+  text-decoration: none;
+  color: white;
 }

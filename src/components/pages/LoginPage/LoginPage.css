@@ -5,3 +5,12 @@
   align-items: center;
   margin-bottom: 50px;
 }
+
+.header-footer {
+  font-family: "Cabin Sketch", cursive;
+  color: yellow;
+}
+
+.form-horizontal {
+  margin-top: 75px;
+}
