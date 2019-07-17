@@ -41,16 +41,12 @@ class EditDeck extends Component {
       <div className="container">
         <div className="wrap-deck">
           <form onSubmit={this.handleSubmit}>
-            <label>Create Deck</label>
+            <label className="header">Create Deck</label>
             <br />
             <input onChange={this.handleDeckName} value={this.state.deckName} />
             <br />
 
-            <input
-              type="submit"
-              className="btn btn-primary"
-              value="Submit Deck"
-            />
+            <input type="submit" className="btn btn-link" value="Submit Deck" />
           </form>
         </div>
       </div>
