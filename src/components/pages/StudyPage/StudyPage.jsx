@@ -62,14 +62,18 @@ class StudyPage extends Component {
     var cards = this.state.cards.map((card, idx) => {
       return idx == this.state.index ? (
         <div key={idx}>
-          <li>{card.frontCard}</li>
+          <li className="card-content">{card.frontCard}</li>
 
-          <li style={{ display: "none" }}>{card.backCard}</li>
+          <li className="card-content" style={{ display: "none" }}>
+            {card.backCard}
+          </li>
         </div>
       ) : (
         <div key={idx} style={{ display: "none" }}>
-          <li>{card.frontCard}</li>
-          <li style={{ display: "none" }}>{card.backCard}</li>
+          <li className="card-content">{card.frontCard}</li>
+          <li className="card-content" style={{ display: "none" }}>
+            {card.backCard}
+          </li>
         </div>
       );
     });
@@ -80,18 +84,20 @@ class StudyPage extends Component {
           {cards}
         </div>
         <div className="box-3 btn-group">
-          <button className="btn - btn-primary study" onClick={this.handlePrev}>
+          <button className="btn - btn-link" onClick={this.handlePrev}>
             {" "}
             Previous
           </button>
 
-          <button className="btn - btn-primary" onClick={this.handleNext}>
+          <button className="btn - btn-link" onClick={this.handleNext}>
             Next
           </button>
         </div>
         <div className="home">
-          <button className="btn btn-info">
-            <Link to={"/profile"}>Home </Link>
+          <button className="btn btn-link">
+            <Link className="btn btn-link" to={"/profile"}>
+              Home{" "}
+            </Link>
           </button>
         </div>
       </div>

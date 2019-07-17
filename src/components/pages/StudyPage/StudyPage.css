@@ -16,9 +16,17 @@ li {
 
 .card {
   height: 200px;
+  margin-top: 40px;
   justify-content: space-around;
+  font-family: "Cabin Sketch", cursive;
+  color: black;
 }
 
 .home {
   text-align: center;
+}
+
+.card-content {
+  color: black;
+  font-size: 20px;
 }
